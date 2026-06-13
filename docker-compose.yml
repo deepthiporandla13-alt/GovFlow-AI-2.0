@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  govflow_db:
+    image: postgres:15-alpine
+    container_name: govflow_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: govflow_user
+      POSTGRES_PASSWORD: govflow_password
+      POSTGRES_DB: govflow_db
+    ports:
+      - "5433:5432"
+    volumes:
+      - govflow_db_data:/var/lib/postgresql/data
+
+volumes:
+  govflow_db_data:
