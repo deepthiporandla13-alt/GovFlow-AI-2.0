@@ -118,7 +118,9 @@ export default function App() {
     setError('');
     setLoading(true);
 
-    const endpoint = isLogin ? '/api/auth/login' : '/api/auth/register';
+    const endpoint = isLogin
+  ? `${API_BASE}/api/auth/login`
+  : `${API_BASE}/api/auth/register`;
     const body = isLogin 
       ? { email, password } 
       : { username, email, password, role, department_id: role !== 'Citizen' && role !== 'Super Admin' ? parseInt(deptId) : null };
