@@ -31,46 +31,21 @@ export default function App() {
   const [showNotifications, setShowNotifications] = useState(false);
 
   // Fetch departments for registration dropdown
+  
   useEffect(() => {
-    if (!isLogin) {
-      // Pull departments
-               fetch(`${API_BASE}/api/analytics/bottlenecks`)
-  .then(async (res) => {
-    if (!res.ok) {
-      throw new Error(`HTTP ${res.status}`);
-    }
-    return res.json();
-  })
-  .then((data) => {
-    if (Array.isArray(data)) {
-      setDepartments(
-        data.map((d) => ({
-          id: d.department_id,
-          name: d.department_name,
-        }))
-      );
-
-      if (data.length > 0) {
-        setDeptId(data[0].department_id.toString());
-      }
-    }
-  })
-  .catch((err) => {
-    console.error("Department fetch failed:", err);
-
-    
-
+  if (!isLogin) {
     setDepartments([
-  { id: 1, name: 'Revenue Department' },
-  { id: 2, name: 'Land Administration' },
-  { id: 3, name: 'Social Welfare' },
-  { id: 4, name: 'Complaints Portal' },
-  { id: 5, name: 'Commercial & Licensing' }
-]);
+      { id: 1, name: 'Revenue Department' },
+      { id: 2, name: 'Land Administration' },
+      { id: 3, name: 'Social Welfare' },
+      { id: 4, name: 'Complaints Portal' },
+      { id: 5, name: 'Commercial & Licensing' }
+    ]);
 
-setDeptId('1');
-  });
-    }
+    setDeptId('1');
+  }
+}, [isLogin]);
+  
   }, [isLogin]);
 
   // Fetch user notifications periodically
