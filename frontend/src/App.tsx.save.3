@@ -68,6 +68,18 @@ export default function App() {
 
     setDeptId("1");
   });
+        })
+        .catch(() => {
+          // fallback
+          setDepartments([
+            { id: 1, name: 'Revenue Department' },
+            { id: 2, name: 'Land Administration' },
+            { id: 3, name: 'Social Welfare' },
+            { id: 4, name: 'Complaints Portal' },
+            { id: 5, name: 'Commercial & Licensing' }
+          ]);
+          setDeptId('1');
+        });
     }
   }, [isLogin]);
 
@@ -77,8 +89,7 @@ export default function App() {
     try {
       // Mock fetch or backend call
       const res = await fetch(`${API_BASE}/api/auth/profile`, {
-        headers: { 'Authorization': `Bearer ${token}` }
-      });
+        headers: { 'Authorization':      });
       if (res.ok) {
         // Fetch active notifications
         // In the interest of keeping the seed simple, we can generate a few notifications
