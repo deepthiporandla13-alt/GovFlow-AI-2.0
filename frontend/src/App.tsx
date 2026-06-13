@@ -58,15 +58,17 @@ export default function App() {
   .catch((err) => {
     console.error("Department fetch failed:", err);
 
-    setDepartments([
-      { id: 1, name: "Revenue Department" },
-      { id: 2, name: "Land Administration" },
-      { id: 3, name: "Social Welfare" },
-      { id: 4, name: "Complaints Portal" },
-      { id: 5, name: "Commercial & Licensing" }
-    ]);
+    
 
-    setDeptId("1");
+    setDepartments([
+  { id: 1, name: 'Revenue Department' },
+  { id: 2, name: 'Land Administration' },
+  { id: 3, name: 'Social Welfare' },
+  { id: 4, name: 'Complaints Portal' },
+  { id: 5, name: 'Commercial & Licensing' }
+]);
+
+setDeptId('1');
   });
     }
   }, [isLogin]);
