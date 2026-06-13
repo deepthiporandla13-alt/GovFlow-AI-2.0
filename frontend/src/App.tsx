@@ -46,7 +46,7 @@ export default function App() {
   }
 }, [isLogin]);
   
-  }, [isLogin]);
+ 
 
   // Fetch user notifications periodically
   const fetchUserNotifications = async () => {
