@@ -61,13 +61,13 @@ export default function App() {
     if (!token) return;
     try {
       // Mock fetch or backend call
-      const res = await fetch(`${API_BASE}/api/auth/profile`, {
+      const res = await fetch('/api/auth/profile', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       if (res.ok) {
         // Fetch active notifications
         // In the interest of keeping the seed simple, we can generate a few notifications
-        const notifRes = await fetch(`${API_BASE}/api/requests`, {
+        const notifRes = await fetch('/api/requests', {
           headers: { 'Authorization': `Bearer ${token}` }
         });
         const requests = await notifRes.json();
