@@ -1,3 +1,4 @@
+import { API_BASE } from '../api'; 
 import React, { useState, useEffect } from 'react';
 import { useStore } from '../store/useStore';
 import { Timeline } from '../components/Timeline';
@@ -33,7 +34,7 @@ export const CitizenDashboard: React.FC = () => {
 
   const fetchRequests = async () => {
     try {
-      const res = await fetch('/api/requests', {
+     const res = await fetch(`${API_BASE}/api/requests`,  {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       const data = await res.json();
@@ -91,7 +92,7 @@ export const CitizenDashboard: React.FC = () => {
     }
 
     try {
-      const res = await fetch('/api/requests/submit', {
+      const res = await fetch(`${API_BASE}/api/requests/submit`,  {
         method: 'POST',
         headers: { 'Authorization': `Bearer ${token}` },
         body: formData
